@@ -1,0 +1,11 @@
+[Unit]
+Description=Drop one video card so that libvirt can use it for GPU-passthrough.
+After=libvirt-bin.service
+Before=display-manager.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/detachCard2.sh
+
+[Install]
+WantedBy=multi-user.target

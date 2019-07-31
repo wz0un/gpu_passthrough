@@ -1,0 +1,20 @@
+# List of modules that you want to include in your initramfs.
+# They will be loaded at boot time in the order below.
+#
+# Syntax:  module_name [args ...]
+#
+# You must run update-initramfs(8) to effect this change.
+#
+# Examples:
+#
+# raid1
+# sd_mod
+softdep nvidia pre: vfio vfio_pci
+
+vfio
+vfio_iommu_type1
+vfio_virqfd
+options vfio_pci ids=10de:11c0,10de:0e0b
+vfio_pci ids=10de:11c0,10de:0e0b
+vfio_pci
+nvidia
