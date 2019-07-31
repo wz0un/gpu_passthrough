@@ -1,0 +1,14 @@
+# gpu_passthrough
+lspci -nn -D | grep NVIDIA
+sudo nano  /usr/local/sbin/detachCard2.sh
+sudo nano /etc/systemd/system/lend-card.service
+sudo systemctl enable lend-card
+sudo reboot
+sudo nano /etc/default/grub
+lspci -nnv | grep NVIDIA
+sudo nano /etc/initramfs-tools/modules
+sudo nano /etc/modprobe.d/nvidiagpu.conf
+sudo nano /etc/modules
+sudo nano /etc/modprobe.d/vfio_pci.conf
+sudo grub-mkconfig; sudo update-grub; sudo update-initramfs -k all -c
+sudo reboot
